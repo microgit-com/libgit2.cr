@@ -14,7 +14,6 @@ module Git
     end
 
     # bare
-    # init_at
     # discover
     # clone_at
     
@@ -44,7 +43,9 @@ module Git
       LibGit.repository_is_bare(@value) == 1
     end
 
-    # shallow?
+    def shallow?
+      LibGit.repository_is_shallow(@value)==1
+    end
     # empty?
 
     # head_detached?
