@@ -17,6 +17,12 @@ module Git
     # init_at
     # discover
     # clone_at
+    
+    def self.init_at(path, is_bare = false)
+      path = File.expand_path(path)
+      LibGit.repository_init(out repo, path, is_bare ? 1 : 0)
+      new(repo, path)
+    end
 
     def exists?(oid : Oid)
       nerr(LibGit.repository_odb(out odb, @value))
