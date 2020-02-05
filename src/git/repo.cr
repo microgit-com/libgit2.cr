@@ -67,7 +67,7 @@ module Git
     end
 
     def last_commit
-      head
+      head.target
     end
 
     def lookup(sha : String)
