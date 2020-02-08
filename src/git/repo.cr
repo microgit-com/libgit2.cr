@@ -46,7 +46,10 @@ module Git
     def shallow?
       LibGit.repository_is_shallow(@value)==1
     end
-    # empty?
+    
+    def empty?
+      LibGit.repository_is_empty(@value)==1
+    end
 
     # head_detached?
     # head_unborn?
@@ -68,7 +71,7 @@ module Git
     end
 
     def last_commit
-      head.target
+      lookup_commit(head.target_id)
     end
 
     def lookup(sha : String)
