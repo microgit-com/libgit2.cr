@@ -43,12 +43,12 @@ module Git
       LibGit.repository_is_bare(@value) == 1
     end
 
-    def shallow?
-      LibGit.repository_is_shallow(@value)==1
+    def shallow? : Bool
+      LibGit.repository_is_shallow(@value) == 1
     end
     
-    def empty?
-      LibGit.repository_is_empty(@value)==1
+    def empty? : Bool
+      LibGit.repository_is_empty(@value) == 1
     end
 
     # head_detached?
