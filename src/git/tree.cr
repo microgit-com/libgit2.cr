@@ -53,7 +53,8 @@ module Git
     end
 
     def path(path : String)
-      raise "not implemented"
+      nerr(LibGit.tree_entry_bypath(out entry, @value, path))
+      TreeEntry.new(entry)
     end
 
     def [](idx : Int)
