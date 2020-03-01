@@ -263,7 +263,7 @@ module Git
     end
 
     def delta
-      DiffDelta.new(LibGit.patch_get_delta(out delta, @value))
+      DiffDelta.new(LibGit.patch_get_delta(@value))
     end
 
     def finalize
