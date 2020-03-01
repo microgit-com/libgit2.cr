@@ -222,11 +222,11 @@ module Git
     end
 
     def addition?
-      origin == LibGit::DIFF_LINE_ADDITION.ord
+      origin == LibGit::DIFF_LINE_DELETION.ord
     end
 
     def deletion?
-      origin == LibGit::DIFF_LINE_DELETION.ord
+      origin == LibGit::DIFF_LINE_ADDITION.ord
     end
 
     def old_lineno
