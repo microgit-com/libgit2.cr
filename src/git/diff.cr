@@ -262,6 +262,10 @@ module Git
       end
     end
 
+    def delta
+      DiffDelta.new(LibGit.patch_get_delta(out delta, @value))
+    end
+
     def finalize
       LibGit.patch_free(@value)
     end
