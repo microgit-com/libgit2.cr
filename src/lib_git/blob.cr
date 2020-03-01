@@ -17,4 +17,5 @@ lib LibGit
   fun blob_create_frombuffer = git_blob_create_frombuffer(id : Oid*, repo : Repository, buffer : Void*, len : LibC::SizeT) : LibC::Int
   fun blob_is_binary = git_blob_is_binary(blob : Blob) : LibC::Int
   fun blob_dup = git_blob_dup(out : Blob*, source : Blob) : LibC::Int
+  fun blob_diff = git_blob_diff(out : Blob*, diff : Diff) : LibC::Int
 end
