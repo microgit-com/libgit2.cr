@@ -89,6 +89,11 @@ module Git
       Oid.new(oid)
     end
 
+    def self.from_diff(diff : Diff)
+      nerr(LibGit.blob_diff(out blob, diff))
+      Blob.new(blob)
+    end
+
     private def is_space(chr : UInt8)
       chr == 32 || (chr >= 9 && chr <= 13)
     end
