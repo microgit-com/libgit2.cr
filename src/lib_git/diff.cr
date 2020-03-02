@@ -153,5 +153,5 @@ lib LibGit
   fun patch_size = git_patch_size(patch : Patch, include_context : LibC::Int, include_hunk_headers : LibC::Int, include_file_headers : LibC::Int) : LibC::SizeT
   fun patch_print = git_patch_print(patch : Patch, print_cb : DiffLineCb, payload : Void*) : LibC::Int
   fun patch_to_buf = git_patch_to_buf(out : Buf*, patch : Patch) : LibC::Int
-  fun patch_to_s = git_diff_patch_to_s(patch : Patch) : String
+  fun patch_to_s = git_diff_patch_to_s(patch : Patch) : LibC::Char*
 end
