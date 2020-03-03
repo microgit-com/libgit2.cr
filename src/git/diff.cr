@@ -272,14 +272,6 @@ module Git
       String.new(buf.ptr)
     end
 
-    def delta
-      DiffDelta.new(LibGit.patch_get_delta(@value))
-    end
-
-    def print
-      LibGit.patch_to_s(@value)
-    end
-
     def finalize
       LibGit.patch_free(@value)
     end
