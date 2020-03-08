@@ -18,7 +18,7 @@ module Git
     end
 
     def self.lookup(repo, branch_name)
-      nerr(LibGit.branch_lookup(out ref, repo, branch_name, BranchType = BranchType::All))
+      nerr(LibGit.branch_lookup(out ref, repo, branch_name, BranchType::All))
       Branch.new(ref)
     end
   end
