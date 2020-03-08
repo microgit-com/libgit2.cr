@@ -9,8 +9,17 @@ module Git
       String.new(b_name)
     end
 
+    def canonical_name
+      String.new(LibGit.reference_name(@value))
+    end
+
     def head?
       LibGit.branch_is_head(@value) == 1
+    end
+
+    def self.lookup(repo, branch_name)
+      nerr(LibGit.branch_lookup(out ref, repo, branch_name, BranchType = BranchType::All))
+      Branch.new(ref)
     end
   end
 
