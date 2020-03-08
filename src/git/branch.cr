@@ -9,14 +9,6 @@ module Git
       String.new(b_name)
     end
 
-    def canonical_name
-      String.new(LibGit.reference_name(@value))
-    end
-
-    def target_id
-      String.new(LibGit.reference_symbolic_target(@value))
-    end
-
     def head?
       LibGit.branch_is_head(@value) == 1
     end
