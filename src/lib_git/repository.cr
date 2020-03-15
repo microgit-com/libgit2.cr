@@ -52,4 +52,5 @@ lib LibGit
   fun repository_is_shallow = git_repository_is_shallow(repo : Repository) : LibC::Int
   # fun repository_ident = git_repository_ident(name : LibC::Char**, email : LibC::Char**, repo : Repository) : LibC::Int
   # fun repository_set_ident = git_repository_set_ident(repo : Repository, name : LibC::Char*, email : LibC::Char*) : LibC::Int
+  fun ahead_behind = git_graph_ahead_behind(ahead : LibC::SizeT*, behind : LibC::SizeT*, repo : Repository, local : Oid*, upstream : Oid*) : LibC::Int
 end

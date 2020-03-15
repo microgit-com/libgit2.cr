@@ -16,7 +16,7 @@ module Git
     # bare
     # discover
     # clone_at
-    
+
     def self.init_at(path, is_bare = false)
       path = File.expand_path(path)
       LibGit.repository_init(out repo, path, is_bare ? 1 : 0)
@@ -55,7 +55,7 @@ module Git
     def shallow? : Bool
       LibGit.repository_is_shallow(@value) == 1
     end
-    
+
     def empty? : Bool
       LibGit.repository_is_empty(@value) == 1
     end
@@ -81,6 +81,15 @@ module Git
 
     def last_commit
       lookup_commit(head.target_id)
+    end
+
+    def ahead_behind(local : Oid, upstream : Oid)
+      nerr(LibGit.ahead_behind(out ahead, out behind, @value, local.p, upstream.p))
+      return ahead.to_i, behind.to_i
+    end
+
+    def ahead_behind(local : Commit, upstream : Commit)
+      ahead_behind(local.oid, upstream.oid)
     end
 
     def lookup(sha : String)
